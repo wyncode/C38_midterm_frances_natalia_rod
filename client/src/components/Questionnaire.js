@@ -1,8 +1,6 @@
-
-
 import React, { useState } from 'react';
 
-const Questionnaire = () => {
+const Questionnaire = ({ history }) => {
   const questions = [
     {
       id: 1,
@@ -44,25 +42,25 @@ const Questionnaire = () => {
 
   const click = (answer) => {
     setAnswers([...answers, answer]);
-    if (answer === "submit") {
+    if (answer === 'submit') {
       // send to the next page
     }
     if (currentIndex >= question.length) {
-      return
+      return;
     }
-  
+
     setCurrentIndex(currentIndex + 1);
     setQuestion(questions[currentIndex]);
     console.log(answer);
     console.log(currentIndex);
   };
 
-
   return (
     <div className="questionnaire">
-    <div id="question">{question?.q}</div>
-    {question?.a.map((answer, i) => {return (
-            <div key={i}>
+      <div id="question">{question?.q}</div>
+      {question?.a.map((answer, i) => {
+        return (
+          <div key={i}>
             <button onClick={() => click(answer?.one)}>{answer.one}</button>
             <button onClick={() => click(answer?.two)}>{answer.two}</button>
             <button onClick={() => click(answer?.three)}>{answer.three}</button>

@@ -1,13 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
-import Questionnaire from './components/Questionnaire'
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import ControlledCarousel from './components/carousel1';
+import Questionnaire from './components/Questionnaire';
+
+import Nav from './components/Nav';
 
 const App = () => {
   return (
-    <div>
-    <Questionnaire />
-    </div>
-  
-  )
-}
+    <BrowserRouter>
+      <Nav />
+      <Switch>
+        <Route exact path="/" component={ControlledCarousel} />
+        <Route exact path="/quiz" component={Questionnaire} />
+      </Switch>
+    </BrowserRouter>
+  );
+};
+
 export default App;
