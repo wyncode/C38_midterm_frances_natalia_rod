@@ -1,9 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import ArtRoulette from './ArtRoulette';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import App from './App';
 
-//changed from initial component of App to ArtRoulette
-
-ReactDOM.render(<ArtRoulette />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
