@@ -1,8 +1,6 @@
-
-
 import React, { useState } from 'react';
 
-const Questionnaire = () => {
+const Quiz = () => {
   const questions = [
     {
       id: 1,
@@ -41,28 +39,42 @@ const Questionnaire = () => {
   const [question, setQuestion] = useState(questions[0]);
   const [currentIndex, setCurrentIndex] = useState(1);
   const [answers, setAnswers] = useState([]);
+  // const [complete, setComplete] = useState("");
 
   const click = (answer) => {
     setAnswers([...answers, answer]);
-    if (answer === "submit") {
-      // send to the next page
+    //logic to decide path goes here
+
+    if (answer === 'A Jungle') {
+      console.log('Photography');
+    } else if (answer === 'A Cliff Edge') {
+      console.log('Sculpture');
+    } else if (answer === 'The Ocean') {
+      console.log('Furniture');
+    } else {
+      console.log('Painting');
     }
+
+    // send to the next page
+
     if (currentIndex >= question.length) {
-      return
+      // setComplete("complete");
+      return;
     }
-  
+
     setCurrentIndex(currentIndex + 1);
     setQuestion(questions[currentIndex]);
     console.log(answer);
     console.log(currentIndex);
   };
 
-
   return (
     <div className="questionnaire">
-    <div id="question">{question?.q}</div>
-    {question?.a.map((answer, i) => {return (
-            <div key={i}>
+      {/* {complete && <p>{complete}</p>} */}
+      <div id="question">{question?.q}</div>
+      {question?.a.map((answer, i) => {
+        return (
+          <div key={i}>
             <button onClick={() => click(answer?.one)}>{answer.one}</button>
             <button onClick={() => click(answer?.two)}>{answer.two}</button>
             <button onClick={() => click(answer?.three)}>{answer.three}</button>
@@ -73,4 +85,4 @@ const Questionnaire = () => {
   );
 };
 
-export default Questionnaire;
+export default Quiz;

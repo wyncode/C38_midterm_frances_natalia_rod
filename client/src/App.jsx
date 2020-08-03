@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Questionnaire from './components/Questionnaire'
+import Quiz from './components/Quiz';
 
 const App = () => {
   return (
     <div>
-    <Questionnaire />
+      <Quiz />
     </div>
-  
-  )
-}
+  );
+};
 export default App;
