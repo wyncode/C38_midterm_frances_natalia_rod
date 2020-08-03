@@ -1,34 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form'
-import Badge from 'react-bootstrap/Badge'
-import { useHistory } from 'react-router-dom'
+import Form from 'react-bootstrap/Form';
+import Badge from 'react-bootstrap/Badge';
+import { useHistory } from 'react-router-dom';
 
-
-
-const Nav = () => {
-
+function Nav() {
+    const [searchTerm, setSearchTerm] = useState("");
+    const formEl = React.useRef(null);
+    const handleChange = event => {
+        setSearchTerm(event.target.value);
+    }
+    console.log(searchTerm)
+    
    let history = useHistory();
    const handleClickHome = () => {
      history.push('/');
     };
-
     return ( //creates eventual searchbar from React-bootstrap
     <Container>
         <div className="heading">
         <Badge variant="info" onClick={handleClickHome}>Modern Art Generator</Badge>
-    <Form>
+    <Form ref={formEl}>
         <Form.Row>
-            <Form.Control 
+            <input
                 id="searchbar" 
                 size="200px" 
-                type ="text" 
+                type ="search" 
                 placeholder="Search your art"
-                ></Form.Control>
+                value={searchTerm}
+                onChange={handleChange}
+                />
         </Form.Row>
     </Form>
     </div>
     </Container>
     )}
-
 export default Nav;

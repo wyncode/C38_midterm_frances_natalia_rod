@@ -1,40 +1,110 @@
 body {
   margin: 0;
-  padding: 0;
+  background-color: rgb(255, 255, 255);
 }
 
+.container {
+  margin: 0 auto;
+  width: 100vw;
+  max-width: 1000px;
+  min-height: 100vh;
+  background-color: white;
+}
 
+nav {
+  height: 100px;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 
-.carousel{
-  height: 100%;
-  width: 1120px;
+nav > * {
+  margin: 20px;
+}
+
+nav a {
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
+  background-color: red;
+  margin-right: auto;
+}
+
+.hero {
+  width: 100%;
+  height: calc(100vh - 100px);
+  background-image: url(/images/HarvardArt-11553910.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  position: relative;
+}
+
+#Rectangle_3 {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  padding: 25px;
+  background-color: rgb(83, 95, 99);
+}
+.section2 {
+  min-height: 100vh;
+  width: 100%;
+  background-color: rgb(214, 214, 214);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.gallery {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.galleryItem {
+  height: 200px;
+  width: 200px;
+  margin: 20px;
+  background-image: url(/images/Harvard-Art-20404494.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel {
+  height: 200%;
   display: flexbox;
   margin-left: auto;
   margin-right: auto;
   padding: 0;
   align-content: center;
-  
 }
 
-.info{
+.info {
   float: top;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-.button{
+.button {
   float: top;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-.img{
+.img {
   border: 1px solid salmon;
 }
 
-.classification{
+.classification {
   color: lightgray;
-  
 }
