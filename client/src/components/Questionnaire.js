@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // quesitons will change according to the API theme
-const Questionnaire = () => {
+const Quiz = () => {
   const questions = [
     {
       id: 1,
@@ -39,18 +39,11 @@ const Questionnaire = () => {
   const [question, setQuestion] = useState(questions[0]);
   const [currentIndex, setCurrentIndex] = useState(1);
   const [answers, setAnswers] = useState([]);
-  const [complete, setComplete] = useState('');
 
   const click = (answer) => {
     setAnswers([...answers, answer]);
 
-    // testing the if else for funtion that determines a path
-    if (answer === 'Paris') {
-      console.log('bonjour');
-    }
 
-    if (currentIndex >= questions.length) {
-      setComplete('complete');
       return;
     }
 
@@ -62,8 +55,6 @@ const Questionnaire = () => {
 
   return (
     <div className="questionnaire">
-      {complete && <p>{complete}</p>}
-
       <div id="question">{question?.q}</div>
       {question?.a.map((answer, i) => {
         return (
@@ -78,4 +69,4 @@ const Questionnaire = () => {
   );
 };
 
-export default Questionnaire;
+export default Quiz;
