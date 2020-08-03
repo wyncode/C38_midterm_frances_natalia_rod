@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style type="text/css">
+    * {
+        outline: 1px dotted black;
+    }
+
+    body {
+        margin: 0;
+        background-color: lightblue
+    }
+
+    .container {
+        margin: 0 auto;
+        width: 100vw;
+        max-width: 1000px;
+        min-height: 100vh;
+        background-color: pink;
+    }
+
+    nav {
+        height: 100px;
+        width: 100%;
+        background-color: lightgreen;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    nav>* {
+        margin: 20px;
+    }
+
+    nav a {}
+
+    .logo {
+        height: 50px;
+        width: 50px;
+        background-color: red;
+        margin-right: auto;
+    }
+
+    .hero {
+        width: 100%;
+        height: calc(100vh - 100px);
+        background-image: url(http://placekitten.com/500/500);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        position: relative;
+    }
+
+    .theButton {
+        position: absolute;
+        bottom: 25px;
+        left: 25px;
+        padding: 25px;
+        background-color: lightblue;
+    }
+	.section2{
+		min-height:100vh;
+		width:100%;
+		background-color: lightgreen;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+    .gallery {
+    	display: flex;
+    	justify-content: space-around;
+    	align-items: center;
+		flex-wrap: wrap;
+    }
+
+    .galleryItem {
+    	height:200px;
+    	width:200px;
+    	margin:20px;
+        background-image: url(http://placekitten.com/500/500);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="nav">
+            <div class="logo"></div>
+            <a>Link</a>
+            <a>Link</a>
+            <a>Link</a>
+            <a>Link</a>
+        </nav>
+        <section class="section">
+            <div class="hero">
+                <button class="theButton">Lets Roulette</button>
+            </div>
+        </section>
+        <section class="section2">
+            <h1>Lets do something</h1>
+            <div class="gallery">
+                <a class="galleryItem"></a>
+                <a class="galleryItem"></a>
+                <a class="galleryItem"></a>
+                <a class="galleryItem"></a>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

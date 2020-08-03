@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { AppContextProvider } from './context/AppContext';
 import ContextDemo from './components/ContextDemo';
-
+import Navbar from './components/layout/Navbar';
 import './App.css';
 
-const App = () => {
+const App = (props) => {
   const [serverMessage, setServerMessage] = useState('');
 
   const fetchDemoData = () => {
@@ -18,6 +18,10 @@ const App = () => {
   return (
     <AppContextProvider>
       <div id="demo">
+        <img src="/images/x.svg"></img>
+        <img src="/images/LOGO.png"></img>
+        <Navbar />
+        <h3 className="blue">{props.name}</h3>
         <h3>Hello from client/src/App.js</h3>
         <ContextDemo />
         <h3>{serverMessage}</h3>
