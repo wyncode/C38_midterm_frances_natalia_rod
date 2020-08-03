@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel'
 //need 'import 'bootstrap/dist/css/bootstrap.min.css' installed in index.jsx!!!!
 
  
-function Gallery1 () {
+function Gallery2 () {
     const [index, setIndex] = useState(0);
   
     const handleSelect = (selectedIndex, e) => {
@@ -123,4 +123,4 @@ function Gallery1 () {
     );
   }
   
- export default Gallery1;
+ export default Gallery2;
