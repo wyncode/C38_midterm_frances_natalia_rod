@@ -1,12 +1,34 @@
-import React, { useState, } from 'react';
+import React, { useState, useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel'
+import axios from "axios"
+import search from "./Nav"
 //need 'import 'bootstrap/dist/css/bootstrap.min.css' installed in index.jsx!!!!
 
  
 function Gallery1 () {
-    const [index, setIndex] = useState(0);
-  
-    const handleSelect = (selectedIndex, e) => {
+  const [apiData, setApiData] = useState([]);
+  const [index, setIndex] = useState(0);
+  const [pageNum, setPageNum] = useState(1);
+
+  const pageUp = () => {
+    setPageNum(pageNum + 1);
+  }
+
+  const pageDown = () => {
+    setPageNum(pageNum - 1);
+  }
+
+
+  useEffect(() => {
+    const getData = async () => {
+      const result = await axios.get(`https://api.harvardartmuseums.org/object?apikey=e1412052-f6fc-4cd1-8000-d79a33f8343e&classification=${search}&page=${pageNum}`)
+            setApiData(result.data.records);
+            };
+      getData();
+  }, [pageNum]);
+
+
+    const handleSelectC = (selectedIndex, e) => {
       setIndex(selectedIndex);
     };
   
@@ -14,113 +36,27 @@ function Gallery1 () {
         
         <div className="carousel">
           <div className="img">
-          <h1 className="classification"><em>Bears(will float over image)</em></h1> 
-      <Carousel activeIndex={index} onSelect={handleSelect}>
-        <Carousel.Item>
+      <Carousel activeIndex={index} onSelect={handleSelectC}>
+        {apiData.map(works => (  
+        <Carousel.Item key={works.id}>
           <img
-            className="d-block w-100"
-            src="https://thenypost.files.wordpress.com/2014/09/bear1.jpg?quality=90&strip=all&w=1200"
-            alt="First slide"
+            src= {works.primaryimageurl}
+            alt= {works.title}
+            width="500px"
           />
           <Carousel.Caption>
-            <h3>BEAR 1</h3>
+            <h5>{works.title}</h5>
           </Carousel.Caption>
-        </Carousel.Item>
-
-
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://19mvmv3yn2qc2bdb912o1t2n-wpengine.netdna-ssl.com/science/files/2019/01/bear-featured-image.jpg"
-            alt="Second slide"
-              />
-  
-          <Carousel.Caption>
-            <h3>BEAR 2</h3>
-          </Carousel.Caption>
-        </Carousel.Item>
-
-
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="http://travel.home.sndimg.com/content/dam/images/travel/stock/2018/2/19/0/shutterstock_34956754_grizzly-bear.jpg.rend.hgtvcom.1280.914.suffix/1519070779400.jpeg"
-            alt="Third slide"
-          />
-            <Carousel.Caption>
-            <h3>BEAR 3</h3>
-          </Carousel.Caption>
-        </Carousel.Item>
-
-
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://news.nationalgeographic.com/content/dam/news/2016/03/04/grizzly_delisting/01grizzlydelisting.ngsversion.1457364600397.adapt.1900.1.jpg"
-            alt="Third slide"
-          />
-            <Carousel.Caption>
-            <h3>BEAR 4</h3>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://thenypost.files.wordpress.com/2014/09/bear1.jpg?quality=90&strip=all&w=1200"
-            alt="First slide"
-          />
-          <Carousel.Caption>
-            <h3>BEAR 1</h3>
-          </Carousel.Caption>
-        </Carousel.Item>
-
-
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://19mvmv3yn2qc2bdb912o1t2n-wpengine.netdna-ssl.com/science/files/2019/01/bear-featured-image.jpg"
-            alt="Second slide"
-              />
-  
-          <Carousel.Caption>
-            <h3>BEAR 2</h3>
-          </Carousel.Caption>
-        </Carousel.Item>
-
-
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="http://travel.home.sndimg.com/content/dam/images/travel/stock/2018/2/19/0/shutterstock_34956754_grizzly-bear.jpg.rend.hgtvcom.1280.914.suffix/1519070779400.jpeg"
-            alt="Third slide"
-          />
-            <Carousel.Caption>
-            <h3>BEAR 3</h3>
-          </Carousel.Caption>
-        </Carousel.Item>
-
-
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://news.nationalgeographic.com/content/dam/news/2016/03/04/grizzly_delisting/01grizzlydelisting.ngsversion.1457364600397.adapt.1900.1.jpg"
-            alt="Third slide"
-          />
-            <Carousel.Caption>
-            <h3>BEAR 4</h3>
-          </Carousel.Caption>
-        </Carousel.Item>
+          </Carousel.Item>
+          ))}
       </Carousel>
-      </div>
-          <div className="info">
-          
-          <h1>Title of piece will go here</h1> 
-          <p>Additional information will go here</p>
+            <div className="button">
+            <button onClick={pageUp}>Next Page</button>
+            <button onClick={pageDown}>Previous Page</button>
+            </div>
           </div>
-          <div className="button"><button>Re-Shuffle!</button></div>
         </div>
-      
     );
   }
   
- export default Gallery1;
+  export default Gallery1;
