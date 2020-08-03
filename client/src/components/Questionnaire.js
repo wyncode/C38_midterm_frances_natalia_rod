@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+// quesitons will change according to the API theme
 const Questionnaire = () => {
   const questions = [
     {
@@ -39,28 +39,35 @@ const Questionnaire = () => {
   const [question, setQuestion] = useState(questions[0]);
   const [currentIndex, setCurrentIndex] = useState(1);
   const [answers, setAnswers] = useState([]);
+  const [complete, setComplete] = useState('');
 
   const click = (answer) => {
     setAnswers([...answers, answer]);
-    if (answer === "submit") {
-      // send to the next page
+
+    // testing the if else for funtion that determines a path
+    if (answer === 'Paris') {
+      console.log('bonjour');
     }
-    if (currentIndex >= question.length) {
-      return
+
+    if (currentIndex >= questions.length) {
+      setComplete('complete');
+      return;
     }
-  
+
     setCurrentIndex(currentIndex + 1);
     setQuestion(questions[currentIndex]);
     console.log(answer);
     console.log(currentIndex);
   };
 
-
   return (
     <div className="questionnaire">
-    <div id="question">{question?.q}</div>
-    {question?.a.map((answer, i) => {return (
-            <div key={i}>
+      {complete && <p>{complete}</p>}
+
+      <div id="question">{question?.q}</div>
+      {question?.a.map((answer, i) => {
+        return (
+          <div key={i}>
             <button onClick={() => click(answer?.one)}>{answer.one}</button>
             <button onClick={() => click(answer?.two)}>{answer.two}</button>
             <button onClick={() => click(answer?.three)}>{answer.three}</button>

@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form'
-import Badge from 'react-bootstrap/Badge'
-import { useHistory } from 'react-router-dom'
-
-
+import Form from 'react-bootstrap/Form';
+import Badge from 'react-bootstrap/Badge';
+import { useHistory } from 'react-router-dom';
 
 function Nav() {
     const [searchTerm, setSearchTerm] = useState("");
