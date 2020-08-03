@@ -6,39 +6,35 @@ import { useHistory } from 'react-router-dom'
 
 
 
-const Nav = () => {
-    const [search, setSearch] = useState("");
+function Nav() {
+    const [searchTerm, setSearchTerm] = useState("");
     const formEl = React.useRef(null);
-
-    const handleSubmitBar = (event) => {
-        event.preventDefault();
-        setSearch(event.target.elements.searchbar.value);
-    
-        event.target.elements.searchbar.value = "";
+    const handleChange = event => {
+        setSearchTerm(event.target.value);
     }
-
+    console.log(searchTerm)
+    
    let history = useHistory();
    const handleClickHome = () => {
      history.push('/');
     };
-
     return ( //creates eventual searchbar from React-bootstrap
     <Container>
         <div className="heading">
         <Badge variant="info" onClick={handleClickHome}>Modern Art Generator</Badge>
-    <Form ref={formEl} onSubmit={handleSubmitBar}>
+    <Form ref={formEl}>
         <Form.Row>
-            <Form.Control 
+            <input
                 id="searchbar" 
                 size="200px" 
-                type ="text" 
+                type ="search" 
                 placeholder="Search your art"
-                defaultValue={search}
-                ></Form.Control>
+                value={searchTerm}
+                onChange={handleChange}
+                />
         </Form.Row>
     </Form>
     </div>
     </Container>
     )}
-
 export default Nav;

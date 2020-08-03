@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel'
 import axios from "axios"
-import search from "./Nav"
 //need 'import 'bootstrap/dist/css/bootstrap.min.css' installed in index.jsx!!!!
 
  
@@ -21,7 +20,7 @@ function Gallery1 () {
 
   useEffect(() => {
     const getData = async () => {
-      const result = await axios.get(`https://api.harvardartmuseums.org/object?apikey=e1412052-f6fc-4cd1-8000-d79a33f8343e&classification=${search}&page=${pageNum}`)
+      const result = await axios.get(`https://api.harvardartmuseums.org/object?apikey=e1412052-f6fc-4cd1-8000-d79a33f8343e&classification=Sculpture&page=${pageNum}`)
             setApiData(result.data.records);
             };
       getData();
@@ -37,7 +36,7 @@ function Gallery1 () {
         <div className="carousel">
           <div className="img">
       <Carousel activeIndex={index} onSelect={handleSelectC}>
-        {apiData.map(works => (  
+      {apiData.map(works => (
         <Carousel.Item key={works.id}>
           <img
             src= {works.primaryimageurl}
