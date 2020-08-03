@@ -5,7 +5,7 @@ import Gallery1 from './components/carousel1';
 import Gallery2 from './components/carousel2';
 import Gallery3 from './components/carousel3';
 import Gallery4 from './components/carousel4';
-import Questionnaire from './components/Questionnaire';
+import Quiz from './components/Quiz';
 import Nav from './components/Nav';
 import Button from './buttons/Button.svg';
 
@@ -15,7 +15,7 @@ const ArtRoulette = () => {
       <Nav />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/quiz" component={Questionnaire} />
+        <Route exact path="/quiz" component={Quiz} />
         <Route exact path="/carousel1" component={Gallery1} />
         <Route exact path="/carousel2" component={Gallery2} />
         <Route exact path="/carousel3" component={Gallery3} />
