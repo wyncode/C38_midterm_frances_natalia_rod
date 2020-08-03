@@ -14,14 +14,14 @@ const Nav = () => {
 
     event.target.elements.searchbar.value = '';
   };
-
+  let history = useHistory();
+  const handleClickHome = () => {
+    history.push('/');
+  };
   return (
     //creates eventual searchbar from React-bootstrap
-    let history = useHistory();
-    const handleClickHome = () => {
-      history.push('/');
-     };
-   <Container>
+
+    <Container>
       <div className="heading">
         <Badge variant="info" onClick={handleClickHome}>
           Modern Art Generator

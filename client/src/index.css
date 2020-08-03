@@ -78,14 +78,8 @@ nav a {
   background-position: center;
 }
 
-<<<<<<< HEAD
 .carousel {
-  height: 100%;
-  width: 1120px;
-=======
-.carousel{
   height: 200%;
->>>>>>> 4360a0d2a4983d20e3879cc98780f988254fc89e
   display: flexbox;
   margin-left: auto;
   margin-right: auto;
@@ -107,28 +101,10 @@ nav a {
   flex-direction: column;
 }
 
-<<<<<<< HEAD
 .img {
   border: 1px solid salmon;
 }
 
 .classification {
-=======
-.img{
-  background-color: black;
-  border: 1px solid salmon;
-}
-
-img{
-  display: block;
-  margin: 0 auto;
-}
-
-
-
-
-
-.classification{
->>>>>>> 4360a0d2a4983d20e3879cc98780f988254fc89e
   color: lightgray;
 }
