@@ -6,8 +6,7 @@ body {
 
 
 .carousel{
-  height: 100%;
-  width: 1120px;
+  height: 200%;
   display: flexbox;
   margin-left: auto;
   margin-right: auto;
@@ -31,8 +30,18 @@ body {
 }
 
 .img{
+  background-color: black;
   border: 1px solid salmon;
 }
+
+img{
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+
 
 .classification{
   color: lightgray;

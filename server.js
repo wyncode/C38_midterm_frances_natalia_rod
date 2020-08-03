@@ -5,12 +5,23 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express');
 const path = require('path');
 const app = express();
+const axios = require('axios');
+const { response } = require('express');
+
+//calling out harvard API
+const getHarvardAPI = async () => {
+  return axios.get(`https://api.harvardartmuseums.org/object?apikey=${HAM_API_KEY}classification=${classification}`)
+}
 
 // JUST FOR DEMO PURPOSES, PUT YOUR ACTUAL API CODE HERE
-app.get('/api/demo', (request, response) => {
-  response.json({
-    message: 'Hello from server.js'
-  });
+app.get('/api/HarvardArtMuseum', async (request, response) => {
+  try {
+  const resp = await getHarvardAPI();
+  response.json(resp);
+  } catch (e){
+  console.log(e);
+  response.status(500).send({ error:e.message });
+  }
 });
 // END DEMO
 
