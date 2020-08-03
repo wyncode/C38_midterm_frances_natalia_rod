@@ -43,7 +43,13 @@ const Quiz = () => {
   const click = (answer) => {
     setAnswers([...answers, answer]);
 
+    let photography = 0;
+    let furniture = 0;
+    let paintings = 0;
+    let weapons = 0;
+    let sculture = 0;
 
+    if (currentIndex >= question.length) {
       return;
     }
 
