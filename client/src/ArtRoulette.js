@@ -7,6 +7,7 @@ import Gallery3 from './components/carousel3';
 import Gallery4 from './components/carousel4';
 import Questionnaire from './components/Questionnaire';
 import Nav from './components/Nav';
+import Button from './buttons/Button.svg';
 
 const ArtRoulette = () => {
   return (
