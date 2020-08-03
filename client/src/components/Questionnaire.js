@@ -39,19 +39,18 @@ const Questionnaire = () => {
   const [question, setQuestion] = useState(questions[0]);
   const [currentIndex, setCurrentIndex] = useState(1);
   const [answers, setAnswers] = useState([]);
-  const [complete, setComplete] = useState("");
+  const [complete, setComplete] = useState('');
 
   const click = (answer) => {
     setAnswers([...answers, answer]);
 
+    // testing the if else for funtion that determines a path
+    if (answer === 'Paris') {
+      console.log('bonjour');
+    }
 
-// testing the if else for funtion that determines a path
-    if (answer === "Paris") {console.log("bonjour")}
-    
-
-   
-if (currentIndex >= questions.length) {
-      setComplete("complete");
+    if (currentIndex >= questions.length) {
+      setComplete('complete');
       return;
     }
 
@@ -60,8 +59,6 @@ if (currentIndex >= questions.length) {
     console.log(answer);
     console.log(currentIndex);
   };
-
-
 
   return (
     <div className="questionnaire">
@@ -74,9 +71,7 @@ if (currentIndex >= questions.length) {
             <button onClick={() => click(answer?.one)}>{answer.one}</button>
             <button onClick={() => click(answer?.two)}>{answer.two}</button>
             <button onClick={() => click(answer?.three)}>{answer.three}</button>
-            
           </div>
-          
         );
       })}
     </div>
