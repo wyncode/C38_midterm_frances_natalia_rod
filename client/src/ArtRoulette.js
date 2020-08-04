@@ -17,6 +17,7 @@ const ArtRoulette = () => {
       <Nav />
       <Switch>
         <Route exact path="/" component={Home} />
+
         <Route exact path="/quiz" component={Quiz} />
         <Route exact path="/carousel1" component={Gallery1} />
         <Route exact path="/carousel2" component={Gallery2} />
