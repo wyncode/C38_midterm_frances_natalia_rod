@@ -14,10 +14,10 @@ import Button from './buttons/Button.svg';
 const ArtRoulette = () => {
   return (
     <BrowserRouter>
-    <Nav />
+      <Nav />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/quiz" component={Questionnaire} />
+        <Route exact path="/quiz" component={Quiz} />
         <Route exact path="/carousel1" component={Gallery} />
         <Route exact path="/quiz" component={Quiz} />
         <Route exact path="/carousel1" component={Gallery1} />
