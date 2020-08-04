@@ -1,37 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
+import { Dropdown, DropdownButton } from 'react-bootstrap'
 import Badge from 'react-bootstrap/Badge';
 import { useHistory } from 'react-router-dom';
 
 function Nav() {
-    const [searchTerm, setSearchTerm] = useState("");
-    const formEl = React.useRef(null);
-    const handleChange = event => {
-        setSearchTerm(event.target.value);
-    }
-    console.log(searchTerm)
-    
-   let history = useHistory();
+
+    const handleClickDrawings = () => {
+      history.push('/carousel1')
+    };
+    const handleClickPaintings = () => {
+      history.push('/carousel2');
+    };
+    const handleClickSculpt = () => {
+      history.push('/carousel3');
+    };
+    const handleClickWeapons = () => {
+      history.push('/carousel4');
+    };
+    const handleClickPhoto = () => {
+      history.push('/carousel5');
+    }; 
+  let history = useHistory();
    const handleClickHome = () => {
      history.push('/');
     };
-    return ( //creates eventual searchbar from React-bootstrap
+    return (
     <Container>
         <div className="heading">
         <Badge variant="info" onClick={handleClickHome}>Modern Art Generator</Badge>
-    <Form ref={formEl}>
-        <Form.Row>
-            <input
-                id="searchbar" 
-                size="200px" 
-                type ="search" 
-                placeholder="Search your art"
-                value={searchTerm}
-                onChange={handleChange}
-                />
-        </Form.Row>
-    </Form>
+        <DropdownButton id="dropdown-item-button" title="Galleries">
+          <Dropdown.ItemText>Navigate:</Dropdown.ItemText>
+            <Dropdown.Item onClick={handleClickDrawings}>Drawings</Dropdown.Item>
+            <Dropdown.Item onClick={handleClickPaintings}>Paintings</Dropdown.Item>
+            <Dropdown.Item onClick={handleClickSculpt}>Sculpture</Dropdown.Item>
+            <Dropdown.Item onClick={handleClickWeapons}>Weapons and Ammunition</Dropdown.Item>
+            <Dropdown.Item onClick={handleClickPhoto}>Photographs</Dropdown.Item>
+        </DropdownButton>
     </div>
     </Container>
     )}
