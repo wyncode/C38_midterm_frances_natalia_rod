@@ -5,7 +5,7 @@ import axios from "axios"
 //need 'import 'bootstrap/dist/css/bootstrap.min.css' installed in index.jsx!!!!
 
  
-function Gallery3 () {
+function Photography() {
   const [apiData, setApiData] = useState([]);
   const [index, setIndex] = useState(0);
   const [pageNum, setPageNum] = useState(1);
@@ -25,11 +25,12 @@ function Gallery3 () {
   const pageDown5 = () => {
     setPageNum(pageNum - 5);
     }
+  
 
 
   useEffect(() => {
     const getData = async () => {
-      const result = await axios.get(`/api/sculpture?page=${pageNum}`)
+      const result = await axios.get(`/api/photography?page=${pageNum}`)
             setApiData(result.data.records);
             };
            getData();
@@ -60,14 +61,15 @@ function Gallery3 () {
               )))}
             </Carousel>
             <div className="button">
-            {pageNum >= 6 && <button onClick={pageDown5}>-5 Pages</button>}
-            {pageNum >= 2 && <button onClick={pageDown}>Previous Page</button>}
-            {pageNum <= 103 && <button onClick={pageUp}>Next Page</button>}
-            {pageNum <= 98 && <button onClick={pageUp5}>+5 Pages</button>}
+              {pageNum >= 6 && <button onClick={pageDown5}>-5 Pages</button>}
+              {pageNum >= 2 && <button onClick={pageDown}>Previous Page</button>}
+              <h1>{pageNum}</h1>
+              {pageNum <= 36 && <button onClick={pageUp}>Next Page</button>}
+               {pageNum <= 31 && <button onClick={pageUp5}>+5 Pages</button>}
             </div>
           </div>
         </div>
     );
   }
   
-  export default Gallery3;
+  export default Photography;
