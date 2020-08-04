@@ -1,0 +1,8 @@
+<svg id="LOGO" xmlns="http://www.w3.org/2000/svg" width="84" height="86" viewBox="0 0 84 86">
+  <g id="Ellipse_5" data-name="Ellipse 5" transform="translate(0 1.5)" fill="#fff" stroke="#707070" stroke-width="3">
+    <circle cx="42" cy="42" r="42" stroke="none"/>
+    <circle cx="42" cy="42" r="40.5" fill="none"/>
+  </g>
+  <text id="A" transform="translate(13 53)" fill="#434343" font-size="53" font-family="Lobster-Regular, Lobster"><tspan x="0" y="0">A</tspan></text>
+  <text id="R" transform="translate(35 73)" fill="#434343" font-size="53" font-family="Lobster-Regular, Lobster"><tspan x="0" y="0">R</tspan></text>
+</svg>

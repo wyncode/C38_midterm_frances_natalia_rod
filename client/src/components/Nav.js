@@ -24,26 +24,25 @@ function Nav() {
 
   return (
     <nav className="arNav">
-      
       <Link to="/" className="ARLOGO"></Link>
       <div className="arSearch">
         <input></input>
       </div>
 
-       <DropdownButton id="dropdown-item-button" title="Galleries">
-          <Dropdown.ItemText>Navigate:</Dropdown.ItemText>
-          {/* //<Dropdown.Item onClick={handleClickDrawings}>Drawings</Dropdown.Item> */}
-          <Dropdown.Item onClick={handleClickPaintings}>
-            Paintings
-          </Dropdown.Item>
-          <Dropdown.Item onClick={handleClickSculpt}>Sculpture</Dropdown.Item>
-          <Dropdown.Item onClick={handleClickWeapons}>
-            Weapons and Ammunition
-          </Dropdown.Item>
-          <Dropdown.Item onClick={handleClickPhoto}>Photographs</Dropdown.Item>
-        </DropdownButton>
-
-    
+      <DropdownButton
+        id="dropdown-item-button"
+        title="Galleries"
+        style={{ color: 'salmon' }}
+      >
+        <Dropdown.ItemText>Navigate:</Dropdown.ItemText>
+        {/* //<Dropdown.Item onClick={handleClickDrawings}>Drawings</Dropdown.Item> */}
+        <Dropdown.Item onClick={handleClickPaintings}>Paintings</Dropdown.Item>
+        <Dropdown.Item onClick={handleClickSculpt}>Sculpture</Dropdown.Item>
+        <Dropdown.Item onClick={handleClickWeapons}>
+          Weapons and Ammunition
+        </Dropdown.Item>
+        <Dropdown.Item onClick={handleClickPhoto}>Photographs</Dropdown.Item>
+      </DropdownButton>
     </nav>
   );
 }
