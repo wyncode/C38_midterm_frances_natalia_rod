@@ -12,7 +12,7 @@ const { response } = require('express');
 app.get('/api/paintings', async (request, response) => {
   const {page} = request.query
   try {
-  const { data } = await axios.get(`https://api.harvardartmuseums.org/object?apikey=${process.env.HAM_API_KEY}&classification=Paintings&century=20th+century&${page}`)
+  const { data } = await axios.get(`https://api.harvardartmuseums.org/object?apikey=${process.env.HAM_API_KEY}&classification=Paintings&century=20th+century&page=${page}`)
   response.json(data);
   } catch (e){
   console.log(e);
@@ -24,7 +24,7 @@ app.get('/api/paintings', async (request, response) => {
 app.get('/api/sculpture', async (request, response) => {
   const {page} = request.query
   try {
-  const { data } = await axios.get(`https://api.harvardartmuseums.org/object?apikey=${process.env.HAM_API_KEY}&classification=Sculpture&century=20th+century&${page}`)
+  const { data } = await axios.get(`https://api.harvardartmuseums.org/object?apikey=${process.env.HAM_API_KEY}&classification=Sculpture&century=20th+century&page=${page}`)
   response.json(data);
   } catch (e){
   console.log(e);
@@ -36,7 +36,7 @@ app.get('/api/sculpture', async (request, response) => {
 app.get('/api/weapons', async (request, response) => {
   const {page} = request.query
   try {
-  const { data } = await axios.get(`https://api.harvardartmuseums.org/object?apikey=${process.env.HAM_API_KEY}&classification=Weapons+and+Ammunition&${page}`)
+  const { data } = await axios.get(`https://api.harvardartmuseums.org/object?apikey=${process.env.HAM_API_KEY}&classification=Weapons+and+Ammunition&page=${page}`)
   response.json(data);
   } catch (e){
   console.log(e);
@@ -48,7 +48,7 @@ app.get('/api/weapons', async (request, response) => {
 app.get('/api/photography', async (request, response) => {
   const {page} = request.query
   try {
-  const { data } = await axios.get(`https://api.harvardartmuseums.org/object?apikey=${process.env.HAM_API_KEY}&classification=Photographs&period=Modern&${page}`)
+  const { data } = await axios.get(`https://api.harvardartmuseums.org/object?apikey=${process.env.HAM_API_KEY}&classification=Photographs&period=Modern&page=${page}`)
   response.json(data);
   } catch (e){
   console.log(e);
