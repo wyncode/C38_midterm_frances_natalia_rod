@@ -29,8 +29,6 @@ const Home = () => {
           </div>
         </section>
       </div>
-
-      <button onClick={handleClick1}>Take the quiz</button>
     </div>
   );
 };
