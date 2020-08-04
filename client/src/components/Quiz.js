@@ -20,18 +20,41 @@ const Quiz = () => {
         {
           one: 'Dirty Martini',
           two: 'Margarita',
-          three: 'whiskey'
+          three: 'Whiskey'
         }
       ]
     },
     {
       id: 3,
-      q: 'Choose a scenery?',
+      q: 'Choose a scenery',
       a: [
         {
           one: 'A Jungle',
           two: 'A Cliff Edge',
-          three: 'The Ocean'
+          three: 'A City'
+        }
+      ]
+    },
+    {
+      id: 4,
+      q: 'Choose an obstable to overcome',
+      a: [
+        {
+          one: 'Zombies',
+          two: 'Unrequited Love',
+          three: 'The Patriarchy'
+        }
+      ]
+    },
+
+    {
+      id: 5,
+      q: 'Choose a subject',
+      a: [
+        {
+          one: 'The Ocean',
+          two: 'Nature',
+          three: 'Your Lover'
         }
       ]
     }
@@ -39,15 +62,14 @@ const Quiz = () => {
   const [question, setQuestion] = useState(questions[0]);
   const [currentIndex, setCurrentIndex] = useState(1);
   const [answers, setAnswers] = useState([]);
+  const [paintings, setPaintings] = useState(0);
+  const [photography, setPhotography] = useState(0);
+  const [furniture, setFurniture] = useState(0);
+  const [sculpture, setSculpture] = useState(0);
+  const [weapons, setWeapons] = useState(0);
 
   const click = (answer) => {
     setAnswers([...answers, answer]);
-
-    let photography = 0;
-    let furniture = 0;
-    let paintings = 0;
-    let weapons = 0;
-    let sculture = 0;
 
     if (currentIndex >= question.length) {
       return;
@@ -55,9 +77,72 @@ const Quiz = () => {
 
     setCurrentIndex(currentIndex + 1);
     setQuestion(questions[currentIndex]);
-    console.log(answer);
-    console.log(currentIndex);
+    // console.log(answer);
+    // console.log(currentIndex);
+
+    if (answer === 'Paris') {
+      setPaintings(paintings + 1);
+    }
+    if (answer === 'New York') {
+      setPhotography(photography + 1);
+    }
+    if (answer === 'Moscow') {
+      setFurniture(furniture + 1);
+    }
+    if (answer === 'Margarita') {
+      setSculpture(sculpture + 1);
+    }
+    if (answer === 'Dirty Martini') {
+      setWeapons(weapons + 1);
+    }
+    if (answer === 'Whiskey') {
+      setFurniture(furniture + 1);
+    }
+    if (answer === 'A Jungle') {
+      setPaintings(paintings + 1);
+    }
+    if (answer === 'A Cliff Edge') {
+      setPhotography(photography + 1);
+    }
+    if (answer === 'A City') {
+      setSculpture(sculpture + 1);
+    }
+    if (answer === 'Zombies') {
+      setWeapons(weapons + 1);
+    }
+    if (answer === 'Unrequited Love') {
+      setPhotography(photography + 1);
+    }
+    if (answer === 'The Patriarchy') {
+      setWeapons(weapons + 1);
+    }
+    if (answer === 'The Ocean') {
+      setFurniture(furniture + 1);
+    }
+    if (answer === 'Nature') {
+      setSculpture(setSculpture + 1);
+    }
+    if (answer === 'Your Lover') {
+      setPaintings(paintings + 1);
+    }
   };
+  console.log(answers);
+  //instead of console.log {histoty.push(path to gallery)}
+  if (currentIndex === 6 && (paintings === 2 || paintings > 2)) {
+    console.log('paintings', paintings);
+  }
+  if (currentIndex === 6 && (photography === 2 || photography > 2)) {
+    console.log('photography', photography);
+  }
+  if (currentIndex === 6 && (furniture === 2 || furniture > 2)) {
+    console.log('furniture', furniture);
+  }
+  if (currentIndex === 6 && (sculpture === 2 || sculpture > 2)) {
+    console.log('sculpture', sculpture);
+  }
+  if (currentIndex === 6 && (weapons === 2 || weapons > 2)) {
+    console.log('weapons', weapons);
+  }
 
   return (
     <div className="questionnaire">
