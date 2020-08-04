@@ -9,7 +9,9 @@ const Quiz = () => {
         {
           one: 'New York',
           two: 'Paris',
-          three: 'Moscow'
+          three: 'Moscow',
+          four: 'Dubai',
+          fifth: 'San Francisco'
         }
       ]
     },
@@ -20,7 +22,9 @@ const Quiz = () => {
         {
           one: 'Dirty Martini',
           two: 'Margarita',
-          three: 'Whiskey'
+          three: 'Whiskey',
+          four: 'Beer',
+          fifth: 'Wine'
         }
       ]
     },
@@ -31,7 +35,9 @@ const Quiz = () => {
         {
           one: 'A Jungle',
           two: 'A Cliff Edge',
-          three: 'A City'
+          three: 'A City',
+          four: 'A Field',
+          fifth: 'A Beach'
         }
       ]
     },
@@ -42,11 +48,12 @@ const Quiz = () => {
         {
           one: 'Zombies',
           two: 'Unrequited Love',
-          three: 'The Patriarchy'
+          three: 'The Patriarchy',
+          four: 'A Pandemic',
+          fifth: 'A terrible childhood'
         }
       ]
     },
-
     {
       id: 5,
       q: 'Choose a subject',
@@ -54,7 +61,23 @@ const Quiz = () => {
         {
           one: 'The Ocean',
           two: 'Nature',
-          three: 'Your Lover'
+          three: 'Your Lover',
+          four: 'Society',
+          fifth: 'Aliens'
+        }
+      ]
+    },
+
+    {
+      id: 6,
+      q: 'Choose an Medium',
+      a: [
+        {
+          one: 'Oil Paint',
+          two: 'Watercolour',
+          three: 'Acrylic',
+          four: 'Clay',
+          fifth: 'Guache'
         }
       ]
     }
@@ -128,19 +151,19 @@ const Quiz = () => {
   };
   console.log(answers);
   //instead of console.log {histoty.push(path to gallery)}
-  if (currentIndex === 6 && (paintings === 2 || paintings > 2)) {
+  if (currentIndex === 7 && (paintings === 2 || paintings > 2)) {
     console.log('paintings', paintings);
   }
-  if (currentIndex === 6 && (photography === 2 || photography > 2)) {
+  if (currentIndex === 7 && (photography === 2 || photography > 2)) {
     console.log('photography', photography);
   }
-  if (currentIndex === 6 && (furniture === 2 || furniture > 2)) {
+  if (currentIndex === 7 && (furniture === 2 || furniture > 2)) {
     console.log('furniture', furniture);
   }
-  if (currentIndex === 6 && (sculpture === 2 || sculpture > 2)) {
+  if (currentIndex === 7 && (sculpture === 2 || sculpture > 2)) {
     console.log('sculpture', sculpture);
   }
-  if (currentIndex === 6 && (weapons === 2 || weapons > 2)) {
+  if (currentIndex === 7 && (weapons === 2 || weapons > 2)) {
     console.log('weapons', weapons);
   }
 
@@ -153,6 +176,8 @@ const Quiz = () => {
             <button onClick={() => click(answer?.one)}>{answer.one}</button>
             <button onClick={() => click(answer?.two)}>{answer.two}</button>
             <button onClick={() => click(answer?.three)}>{answer.three}</button>
+            <button onClick={() => click(answer?.four)}>{answer.four}</button>
+            <button onClick={() => click(answer?.fifth)}>{answer.fifth}</button>
           </div>
         );
       })}
