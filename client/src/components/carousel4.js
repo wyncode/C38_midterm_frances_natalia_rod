@@ -29,7 +29,7 @@ function Gallery4 () {
 
   useEffect(() => {
     const getData = async () => {
-      const result = await axios.get(`https://api.harvardartmuseums.org/object?apikey=e1412052-f6fc-4cd1-8000-d79a33f8343e&classification=Weapons+and+Ammunition&page=${pageNum}`)
+      const result = await axios.get(`/api/weapons?page=${pageNum}`)
             setApiData(result.data.records);
             };
            getData();
