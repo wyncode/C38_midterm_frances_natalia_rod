@@ -5,7 +5,7 @@ import Badge from 'react-bootstrap/Badge';
 import { useHistory } from 'react-router-dom';
 
 function Nav() {
-
+  let history = useHistory();
     const handleClickDrawings = () => {
       history.push('/carousel1')
     };
