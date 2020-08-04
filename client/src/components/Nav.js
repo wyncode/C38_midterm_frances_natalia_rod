@@ -21,7 +21,7 @@ function Nav() {
     const handleClickPhoto = () => {
       history.push('/carousel5');
     }; 
-  let history = useHistory();
+
    const handleClickHome = () => {
      history.push('/');
     };
