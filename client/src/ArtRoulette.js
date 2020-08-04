@@ -20,10 +20,10 @@ const ArtRoulette = () => {
 
         <Route exact path="/quiz" component={Quiz} />
         {/* <Route exact path="/carousel1" component={Gallery1} /> */}
-        <Route exact path="/carousel2" component={Gallery2} />
-        <Route exact path="/carousel3" component={Gallery3} />
-        <Route exact path="/carousel4" component={Gallery4} />
-        <Route exact path="/carousel5" component={Gallery5} />
+        <Route exact path="/paintings" component={Gallery2} />
+        <Route exact path="/sculptures" component={Gallery3} />
+        <Route exact path="/weapons" component={Gallery4} />
+        <Route exact path="/photography" component={Gallery5} />
       </Switch>
     </BrowserRouter>
   );
