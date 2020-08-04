@@ -1,9 +1,12 @@
+/* * {
+  outline: 1px dotted black;
+} */
 body {
   margin: 0;
   background-color: rgb(255, 255, 255);
 }
 
-.container {
+.homePage {
   margin: 0 auto;
   width: 100vw;
   max-width: 1000px;
@@ -11,9 +14,9 @@ body {
   background-color: white;
 }
 
-nav {
+.homeNav {
   height: 100px;
-  width: 100%; 
+  width: 100%;
   background-color: white;
   display: flex;
   justify-content: flex-end;
@@ -26,26 +29,35 @@ nav > * {
 
 nav a {
 }
-
-.logo {
+.arNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ARLOGO {
   height: 50px;
   width: 50px;
-  background-color: red;
+  background-image: url(/images/LOGO.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
   margin-right: auto;
+}
+
+.arSearch {
 }
 
 .hero {
   width: 100%;
   height: calc(100vh - 100px);
-  background-image: url(/images/HarvardArt-11553910.jpeg);
+  background-image: url(/images/Harvard-Art-11553910.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 
   position: relative;
 }
-
-#Rectangle_3 {
+*/ #Rectangle_3 {
   position: absolute;
   bottom: 25px;
   left: 25px;
@@ -88,17 +100,22 @@ nav a {
 }
 
 .info {
-  float: top;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-.button {
-  float: top;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+.theButton {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  width: 398px;
+  height: 99px;
+  background-image: url(/images/Button.svg);
+  background-color: transparent;
+  border-width: 0px;
+  outline-width: 0px;
+  outline-color: transparent;
 }
 
 .img {
