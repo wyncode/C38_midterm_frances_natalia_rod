@@ -5,7 +5,7 @@ import axios from "axios"
 //need 'import 'bootstrap/dist/css/bootstrap.min.css' installed in index.jsx!!!!
 
  
-function Gallery4 () {
+function Paintings () {
   const [apiData, setApiData] = useState([]);
   const [index, setIndex] = useState(0);
   const [pageNum, setPageNum] = useState(1);
@@ -25,11 +25,11 @@ function Gallery4 () {
   const pageDown5 = () => {
     setPageNum(pageNum - 5);
     }
-    
+
 
   useEffect(() => {
     const getData = async () => {
-      const result = await axios.get(`/api/weapons?page=${pageNum}`)
+      const result = await axios.get(`/api/paintings?page=${pageNum}`)
             setApiData(result.data.records);
             };
            getData();
@@ -62,12 +62,13 @@ function Gallery4 () {
             <div className="button">
             {pageNum >= 6 && <button onClick={pageDown5}>-5 Pages</button>}
             {pageNum >= 2 && <button onClick={pageDown}>Previous Page</button>}
-            {pageNum <= 18 && <button onClick={pageUp}>Next Page</button>}
-            {pageNum <= 13 && <button onClick={pageUp5}>+5 Pages</button>}
+            <h1>{pageNum}</h1>
+            {pageNum <= 206 && <button onClick={pageUp}>Next Page</button>}
+            {pageNum <= 201 && <button onClick={pageUp5}>+5 Pages</button>}
             </div>
           </div>
         </div>
     );
   }
   
-  export default Gallery4;
+  export default Paintings;

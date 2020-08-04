@@ -6,20 +6,18 @@ import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 
 function Nav() {
   let history = useHistory();
-  const handleClickDrawings = () => {
-    history.push('/carousel1');
-  };
+ 
   const handleClickPaintings = () => {
-    history.push('/carousel2');
+    history.push('/Paintings');
   };
   const handleClickSculpt = () => {
-    history.push('/carousel3');
+    history.push('/Sculpture');
   };
   const handleClickWeapons = () => {
-    history.push('/carousel4');
+    history.push('/Weapons');
   };
   const handleClickPhoto = () => {
-    history.push('/carousel5');
+    history.push('/Photography');
   };
 
   return (

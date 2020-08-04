@@ -1,11 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './components/Homepage';
-// import Gallery1 from './components/carousel1';
-import Gallery2 from './components/carousel2';
-import Gallery3 from './components/carousel3';
-import Gallery4 from './components/carousel4';
-import Gallery5 from './components/carousel5';
+import Paintings from './components/Paintings';
+import Sculpture from './components/Sculpture';
+import Weapons from './components/Weapons';
+import Photography from './components/Photography';
 import Quiz from './components/Quiz';
 
 import Nav from './components/Nav';
@@ -17,13 +16,11 @@ const ArtRoulette = () => {
       <Nav />
       <Switch>
         <Route exact path="/" component={Home} />
-
         <Route exact path="/quiz" component={Quiz} />
-        {/* <Route exact path="/carousel1" component={Gallery1} /> */}
-        <Route exact path="/paintings" component={Gallery2} />
-        <Route exact path="/sculptures" component={Gallery3} />
-        <Route exact path="/weapons" component={Gallery4} />
-        <Route exact path="/photography" component={Gallery5} />
+        <Route exact path="/Paintings" component={Paintings} />
+        <Route exact path="/Sculpture" component={Sculpture} />
+        <Route exact path="/Weapons" component={Weapons} />
+        <Route exact path="/Photography" component={Photography} />
       </Switch>
     </BrowserRouter>
   );
