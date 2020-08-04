@@ -18,6 +18,14 @@ function Gallery4 () {
     setPageNum(pageNum - 1);
     }
 
+  const pageUp5 = () => {
+    setPageNum(pageNum + 5);
+    }
+  
+  const pageDown5 = () => {
+    setPageNum(pageNum - 5);
+    }
+    
 
   useEffect(() => {
     const getData = async () => {
@@ -38,11 +46,13 @@ function Gallery4 () {
             <Carousel activeIndex={index} onSelect={handleSelectC}>
               {apiData.map(works => ((works.primaryimageurl &&
                 <Carousel.Item key={works.id}>
-                  <img
-                    src= {works.primaryimageurl}
-                    alt= {works.title}
-                    width="500px"
-                  />
+                  <a href={works.url}>
+                    <img
+                      src= {works.primaryimageurl}
+                      alt= {works.title}
+                      width="500px"
+                    />
+                  </a>
                   <Carousel.Caption>
                     <h5>{works.title}</h5>
                   </Carousel.Caption>
@@ -50,8 +60,10 @@ function Gallery4 () {
               )))}
             </Carousel>
             <div className="button">
-              <button onClick={pageDown}>Previous Page</button>
-              <button onClick={pageUp}>Next Page</button>
+            {pageNum >= 6 && <button onClick={pageDown5}>-5 Pages</button>}
+            {pageNum >= 2 && <button onClick={pageDown}>Previous Page</button>}
+            {pageNum <= 18 && <button onClick={pageUp}>Next Page</button>}
+            {pageNum <= 13 && <button onClick={pageUp5}>+5 Pages</button>}
             </div>
           </div>
         </div>
