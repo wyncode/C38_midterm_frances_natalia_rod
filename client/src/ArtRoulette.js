@@ -6,7 +6,6 @@ import Gallery2 from './components/carousel2';
 import Gallery3 from './components/carousel3';
 import Gallery4 from './components/carousel4';
 import Gallery5 from './components/carousel5';
-import Questionnaire from './components/Questionnaire';
 import Quiz from './components/Quiz';
 
 import Nav from './components/Nav';
