@@ -4,11 +4,7 @@ import '../index.css';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 
 const Home = () => {
-  let history = useHistory();
-  const handleClick1 = () => {
-    history.push('/quiz');
-  };
-
+  
   return (
     <div>
       <div class="homePage">

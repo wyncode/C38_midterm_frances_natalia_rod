@@ -5,7 +5,7 @@ import axios from "axios"
 //need 'import 'bootstrap/dist/css/bootstrap.min.css' installed in index.jsx!!!!
 
  
-function Gallery () {
+function Gallery1 () {
   const [apiData, setApiData] = useState([]);
   const [index, setIndex] = useState(0);
   const [pageNum, setPageNum] = useState(1);
@@ -58,4 +58,4 @@ function Gallery () {
     );
   }
   
-  export default Gallery;
+  export default Gallery1;
