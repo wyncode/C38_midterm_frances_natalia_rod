@@ -117,6 +117,12 @@ nav a {
   background-size: cover;
   background-position: center;
 }
+.caption1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
 .carousel {
   height: 200%;
   display: flexbox;
