@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 
 function Nav() {
   let history = useHistory();
- 
+
   const handleClickPaintings = () => {
     history.push('/Paintings');
   };
@@ -22,22 +22,17 @@ function Nav() {
 
   return (
     <nav className="arNav">
-      
       <Link to="/" className="ARLOGO"></Link>
-      
-       <DropdownButton id="dropdown-item-button" title="Galleries">
-          <Dropdown.ItemText>Navigate:</Dropdown.ItemText>
-          <Dropdown.Item onClick={handleClickPaintings}>
-            Paintings
-          </Dropdown.Item>
-          <Dropdown.Item onClick={handleClickSculpt}>Sculpture</Dropdown.Item>
-          <Dropdown.Item onClick={handleClickWeapons}>
-            Weapons and Ammunition
-          </Dropdown.Item>
-          <Dropdown.Item onClick={handleClickPhoto}>Photographs</Dropdown.Item>
-        </DropdownButton>
 
-    
+      <DropdownButton id="dropdown-item-button" title="Galleries">
+        <Dropdown.ItemText>Navigate:</Dropdown.ItemText>
+        <Dropdown.Item onClick={handleClickPaintings}>Paintings</Dropdown.Item>
+        <Dropdown.Item onClick={handleClickSculpt}>Sculpture</Dropdown.Item>
+        <Dropdown.Item onClick={handleClickWeapons}>
+          Weapons and Ammunition
+        </Dropdown.Item>
+        <Dropdown.Item onClick={handleClickPhoto}>Photographs</Dropdown.Item>
+      </DropdownButton>
     </nav>
   );
 }
