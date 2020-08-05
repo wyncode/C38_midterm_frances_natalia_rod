@@ -60,8 +60,8 @@ function Sculpture() {
                   <a href={works.url}>
                     <img
                       src={works.primaryimageurl}
-                      alt={works.title}
-                      width="500px"
+                      alt={works.title}                         //alt tag is the works title for accessibility
+                      width="600px"
                     />
                   </a>
                   <Carousel.Caption>
