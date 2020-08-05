@@ -117,7 +117,7 @@ const Quiz = ({ history }) => {
     history.push('/Weapons');
   }
   if (currentIndex === 6 && photography > 1) {
-    history.push('/Photography');;
+    history.push('/Photography');
   }
 
   return (

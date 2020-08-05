@@ -24,11 +24,6 @@ function Nav() {
     <nav className="arNav">
       <Link to="/" className="ARLOGO"></Link>
 
-      <DropdownButton
-        id="dropdown-item-button"
-        title="Galleries"
-        style={{ color: 'salmon' }}
-      >
         <Dropdown.ItemText>Navigate:</Dropdown.ItemText>
         <Dropdown.Item onClick={handleClickPaintings}>Paintings</Dropdown.Item>
         <Dropdown.Item onClick={handleClickSculpt}>Sculpture</Dropdown.Item>
