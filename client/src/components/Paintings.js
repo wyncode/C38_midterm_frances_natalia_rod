@@ -2,12 +2,17 @@ import React, { useState, useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import axios from 'axios';
 
-//need 'import 'bootstrap/dist/css/bootstrap.min.css' installed in index.jsx!!!!
+//need 'import 'bootstrap/dist/css/bootstrap.min.css' installed in index.jsx in order to use bootstrap
 
 function Paintings() {
+
+  //setting up a state for apiData to pull from the API, index to utilize the carousel, and pageNum to be able to navigate through the API's pages
+
   const [apiData, setApiData] = useState([]);
   const [index, setIndex] = useState(0);
   const [pageNum, setPageNum] = useState(1);
+
+  //following functions are for navigation of the API's pages, in intervals of 1 and 5. Activated by buttons below
 
   const pageUp = () => {
     setPageNum(pageNum + 1);
@@ -25,6 +30,8 @@ function Paintings() {
     setPageNum(pageNum - 5);
   };
 
+  // useEffect used to pull from the API request set up in server.js. the query request for the page, or '?page=${pageNum}', lets us change the api endpoint from the front end.
+
   useEffect(() => {
     const getData = async () => {
       const result = await axios.get(`/api/paintings?page=${pageNum}`);
@@ -32,6 +39,8 @@ function Paintings() {
     };
     getData();
   }, [pageNum]);
+
+  // handleSelectC function allows us to navigate through the carousel
 
   const handleSelectC = (selectedIndex, e) => {
     setIndex(selectedIndex);
@@ -41,6 +50,9 @@ function Paintings() {
     <div className="carousel">
       <div className="img">
         <Carousel activeIndex={index} onSelect={handleSelectC}>
+
+          {/* apiData will only map objects in the JSON that have images, through the use of the && statement*/}
+
           {apiData.map(
             (works) =>
               works.primaryimageurl && (
@@ -59,6 +71,9 @@ function Paintings() {
               )
           )}
         </Carousel>
+
+        {/* buttons only render if their intended use is applicable, through the use of the && statement */}
+
         <div className="button">
           {pageNum >= 6 && <button onClick={pageDown5}>-5 Pages</button>}
           {pageNum >= 2 && <button onClick={pageDown}>Previous Page</button>}
