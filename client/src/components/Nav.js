@@ -23,7 +23,7 @@ function Nav() {
   return (
     <nav className="arNav">
       <Link to="/" className="ARLOGO"></Link>
-
+      <DropdownButton id="dropdown-item-button" title="Galleries">
         <Dropdown.ItemText>Navigate:</Dropdown.ItemText>
         <Dropdown.Item onClick={handleClickPaintings}>Paintings</Dropdown.Item>
         <Dropdown.Item onClick={handleClickSculpt}>Sculpture</Dropdown.Item>

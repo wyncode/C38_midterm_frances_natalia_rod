@@ -1,5 +1,4 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import '../index.css';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
