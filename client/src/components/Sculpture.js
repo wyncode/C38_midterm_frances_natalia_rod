@@ -5,7 +5,7 @@ import axios from "axios"
 //need 'import 'bootstrap/dist/css/bootstrap.min.css' installed in index.jsx!!!!
 
  
-function Gallery4 () {
+function Sculpture() {
   const [apiData, setApiData] = useState([]);
   const [index, setIndex] = useState(0);
   const [pageNum, setPageNum] = useState(1);
@@ -18,10 +18,18 @@ function Gallery4 () {
     setPageNum(pageNum - 1);
     }
 
+  const pageUp5 = () => {
+    setPageNum(pageNum + 5);
+    }
+  
+  const pageDown5 = () => {
+    setPageNum(pageNum - 5);
+    }
+
 
   useEffect(() => {
     const getData = async () => {
-      const result = await axios.get(`https://api.harvardartmuseums.org/object?apikey=e1412052-f6fc-4cd1-8000-d79a33f8343e&classification=Photographs&page=${pageNum}`)
+      const result = await axios.get(`/api/sculpture?page=${pageNum}`)
             setApiData(result.data.records);
             };
            getData();
@@ -38,11 +46,13 @@ function Gallery4 () {
             <Carousel activeIndex={index} onSelect={handleSelectC}>
               {apiData.map(works => ((works.primaryimageurl &&
                 <Carousel.Item key={works.id}>
-                  <img
-                    src= {works.primaryimageurl}
-                    alt= {works.title}
-                    width="500px"
-                  />
+                  <a href={works.url}>
+                    <img
+                      src= {works.primaryimageurl}
+                      alt= {works.title}
+                      width="500px"
+                    />
+                  </a>
                   <Carousel.Caption>
                     <h5>{works.title}</h5>
                   </Carousel.Caption>
@@ -50,12 +60,15 @@ function Gallery4 () {
               )))}
             </Carousel>
             <div className="button">
-              <button onClick={pageDown}>Previous Page</button>
-              <button onClick={pageUp}>Next Page</button>
+            {pageNum >= 6 && <button onClick={pageDown5}>-5 Pages</button>}
+            {pageNum >= 2 && <button onClick={pageDown}>Previous Page</button>}
+            <h1>{pageNum}</h1>
+            {pageNum <= 103 && <button onClick={pageUp}>Next Page</button>}
+            {pageNum <= 98 && <button onClick={pageUp5}>+5 Pages</button>}
             </div>
           </div>
         </div>
     );
   }
   
-  export default Gallery4;
+  export default Sculpture;

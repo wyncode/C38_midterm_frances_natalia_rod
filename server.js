@@ -8,21 +8,55 @@ const app = express();
 const axios = require('axios');
 const { response } = require('express');
 
-//calling out harvard API
-const getHarvardAPI = async () => {
-  return axios.get(`https://api.harvardartmuseums.org/object?apikey=${HAM_API_KEY}classification=${classification}`)
-}
-
-// JUST FOR DEMO PURPOSES, PUT YOUR ACTUAL API CODE HERE
-app.get('/api/HarvardArtMuseum', async (request, response) => {
+//calling out harvard API- PAINTINGS
+app.get('/api/paintings', async (request, response) => {
+  const {page} = request.query
   try {
-  const resp = await getHarvardAPI();
-  response.json(resp);
+  const { data } = await axios.get(`https://api.harvardartmuseums.org/object?apikey=${process.env.HAM_API_KEY}&classification=Paintings&century=20th+century&page=${page}`)
+  response.json(data);
   } catch (e){
   console.log(e);
   response.status(500).send({ error:e.message });
   }
 });
+
+//calling out harvard API- SCULPTURE
+app.get('/api/sculpture', async (request, response) => {
+  const {page} = request.query
+  try {
+  const { data } = await axios.get(`https://api.harvardartmuseums.org/object?apikey=${process.env.HAM_API_KEY}&classification=Sculpture&century=20th+century&page=${page}`)
+  response.json(data);
+  } catch (e){
+  console.log(e);
+  response.status(500).send({ error:e.message });
+  }
+});
+
+//calling out harvard API- WEAPONS AND AMMO
+app.get('/api/weapons', async (request, response) => {
+  const {page} = request.query
+  try {
+  const { data } = await axios.get(`https://api.harvardartmuseums.org/object?apikey=${process.env.HAM_API_KEY}&classification=Weapons+and+Ammunition&page=${page}`)
+  response.json(data);
+  } catch (e){
+  console.log(e);
+  response.status(500).send({ error:e.message });
+  }
+});
+
+//calling out harvard API- PHOTOGRAPHY
+app.get('/api/photography', async (request, response) => {
+  const {page} = request.query
+  try {
+  const { data } = await axios.get(`https://api.harvardartmuseums.org/object?apikey=${process.env.HAM_API_KEY}&classification=Photographs&period=Modern&page=${page}`)
+  response.json(data);
+  } catch (e){
+  console.log(e);
+  response.status(500).send({ error:e.message });
+  }
+});
+
+
 // END DEMO
 
 if (process.env.NODE_ENV === 'production') {

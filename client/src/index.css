@@ -85,12 +85,38 @@ nav a {
   height: 200px;
   width: 200px;
   margin: 20px;
-  background-image: url(/images/Harvard-Art-20404494.jpeg);
+  background-image: url(/images/Harvard-Art-11553910.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
-
+.galleryItem2 {
+  height: 200px;
+  width: 200px;
+  margin: 20px;
+  background-image: url(/images/Harvard-Art-457648678.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.galleryItem3 {
+  height: 200px;
+  width: 200px;
+  margin: 20px;
+  background-image: url(/images/Harvard-Art-477339539.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.galleryItem4 {
+  height: 200px;
+  width: 200px;
+  margin: 20px;
+  background-image: url(/images/Harvard_Art_18783392.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 .carousel {
   height: 200%;
   display: flexbox;

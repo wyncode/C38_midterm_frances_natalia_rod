@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import '../index.css';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link';
+import { Link as ScrollLink } from 'react-scroll';
 
 const Home = () => {
   return (
@@ -13,13 +13,13 @@ const Home = () => {
             <h1 class="apTitle">Art Roulette</h1>
             <p class="description">
               Play roulette and see what kind of art nerd you are or{' '}
-              <Link
-                to="#anchor"
-                activeClassName="active"
+              <ScrollLink
+                to="anchor"
+                smooth={true}
                 style={{ color: '#272727' }}
               >
                 <b>browse our galleries.</b>
-              </Link>
+              </ScrollLink>
             </p>
             <Link to={`/quiz`} activeClassName="active">
               <button class="theButton"></button>
@@ -27,14 +27,28 @@ const Home = () => {
           </div>
         </section>
         <section class="section2">
-          <h1 class="galleryIcon">
-            <a id="anchor">View Our Galleries</a>
-          </h1>
+          <h1 id="anchor">View Our Galleries</h1>
           <div class="gallery">
-            <a class="galleryItem"></a>
-            <a class="galleryItem"></a>
-            <a class="galleryItem"></a>
-            <a class="galleryItem"></a>
+            <Link to="/Paintings" class="galleryItem">
+              <h6 class="caption1" style={{ color: 'white' }}>
+                Painting
+              </h6>
+            </Link>
+            <Link to="/Sculpture" class="galleryItem2">
+              <h6 class="caption1" style={{ color: 'white' }}>
+                Sculpture
+              </h6>
+            </Link>
+            <Link to="/Photography" class="galleryItem3">
+              <h6 class="caption1" style={{ color: 'white' }}>
+                Photography
+              </h6>
+            </Link>
+            <Link to="/Weapons" class="galleryItem4">
+              <h6 class="caption1" style={{ color: 'white' }}>
+                Weapons
+              </h6>
+            </Link>
           </div>
         </section>
       </div>

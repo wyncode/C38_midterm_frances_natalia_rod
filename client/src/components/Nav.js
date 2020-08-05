@@ -6,28 +6,23 @@ import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 
 function Nav() {
   let history = useHistory();
-  const handleClickDrawings = () => {
-    history.push('/carousel1');
-  };
+
   const handleClickPaintings = () => {
-    history.push('/carousel2');
+    history.push('/Paintings');
   };
   const handleClickSculpt = () => {
-    history.push('/carousel3');
+    history.push('/Sculpture');
   };
   const handleClickWeapons = () => {
-    history.push('/carousel4');
+    history.push('/Weapons');
   };
   const handleClickPhoto = () => {
-    history.push('/carousel5');
+    history.push('/Photography');
   };
 
   return (
     <nav className="arNav">
       <Link to="/" className="ARLOGO"></Link>
-      <div className="arSearch">
-        <input></input>
-      </div>
 
       <DropdownButton
         id="dropdown-item-button"
@@ -35,7 +30,6 @@ function Nav() {
         style={{ color: 'salmon' }}
       >
         <Dropdown.ItemText>Navigate:</Dropdown.ItemText>
-        {/* //<Dropdown.Item onClick={handleClickDrawings}>Drawings</Dropdown.Item> */}
         <Dropdown.Item onClick={handleClickPaintings}>Paintings</Dropdown.Item>
         <Dropdown.Item onClick={handleClickSculpt}>Sculpture</Dropdown.Item>
         <Dropdown.Item onClick={handleClickWeapons}>
