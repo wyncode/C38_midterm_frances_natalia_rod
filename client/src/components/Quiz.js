@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+// quesitons will change according to the API theme
 const Quiz = ({ history }) => {
   const questions = [
     {
@@ -108,20 +108,16 @@ const Quiz = ({ history }) => {
   console.log(answers);
   //instead of console.log {histoty.push(path to gallery)}
   if (currentIndex === 6 && paintings > 1) {
-    history.push('/paintings');
-    console.log('paintings', paintings);
+    history.push('/Paintings');
   }
   if (currentIndex === 6 && sculpture > 1) {
-    history.push('/sculpture');
-    console.log('sculpture', sculpture);
+    history.push('/Sculpture');
   }
   if (currentIndex === 6 && weapons > 1) {
-    history.push('/weapons');
-    console.log('weapons', weapons);
+    history.push('/Weapons');
   }
   if (currentIndex === 6 && photography > 1) {
-    history.push('/photography');
-    console.log('photography', photography);
+    history.push('/Photography');
   }
 
   return (

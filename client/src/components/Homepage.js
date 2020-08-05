@@ -4,7 +4,6 @@ import '../index.css';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 
 const Home = () => {
-  
   return (
     <div>
       <div class="homePage">
