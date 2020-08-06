@@ -69,7 +69,7 @@ const Quiz = ({ history }) => {
   const [sculpture, setSculpture] = useState(0);
   const [weapons, setWeapons] = useState(0);
   const [backgroundUrl, setbackgroundUrl] = useState(
-    questions[0].backgroundUrl
+    questions[1].backgroundUrl
   );
   const click = (answer) => {
     setAnswers([...answers, answer]);

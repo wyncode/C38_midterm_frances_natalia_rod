@@ -39,20 +39,18 @@ body {
   text-align: center;
 }
 
-/* .gB {
-
-} */
-
 nav > * {
   margin: 20px;
 }
 
-nav a {
-}
 .arNav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+#dropdownItemButton {
+  background-color: grey;
 }
 .ARLOGO {
   height: 86px;
