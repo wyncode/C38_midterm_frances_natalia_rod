@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import '../index.css';
+
+// quesitons will change according to the API theme
 
 // Quiz Function for our Art Roulette questionnaire
 // takes history as prop, which will redirect the user to a gallery
@@ -16,7 +19,8 @@ const Quiz = ({ history }) => {
           one: 'New York',
           two: 'Paris'
         }
-      ]
+      ],
+      backgroundUrl: '/images/Harvard_Art_18783392.jpeg'
     },
     {
       id: 2,
@@ -26,7 +30,8 @@ const Quiz = ({ history }) => {
           one: 'Dirty Martini',
           two: 'Whiskey'
         }
-      ]
+      ],
+      backgroundUrl: '/images/Harvard_Art_46473571.jpeg'
     },
     {
       id: 3,
@@ -36,7 +41,8 @@ const Quiz = ({ history }) => {
           one: 'A Jungle',
           two: 'A City'
         }
-      ]
+      ],
+      backgroundUrl: '/images/Harvard_Art_20676300copy.jpeg'
     },
     {
       id: 4,
@@ -46,7 +52,8 @@ const Quiz = ({ history }) => {
           one: 'Zombies',
           two: 'Unrequited Love'
         }
-      ]
+      ],
+      backgroundUrl: '/images/Harvard_Art_18788721copy.jpeg'
     },
 
     {
@@ -57,7 +64,8 @@ const Quiz = ({ history }) => {
           one: 'The Ocean',
           two: 'Nature'
         }
-      ]
+      ],
+      backgroundUrl: '/images/Harvard-Art-477339539.jpeg'
     }
   ];
   //we used hook useState to keep track and update the questions,
@@ -70,11 +78,15 @@ const Quiz = ({ history }) => {
   const [photography, setPhotography] = useState(0);
   const [sculpture, setSculpture] = useState(0);
   const [weapons, setWeapons] = useState(0);
-
-  // Our click function takes in states as inputs
-  // registers the answers to the console
+  const [backgroundUrl, setbackgroundUrl] = useState(
+    questions[4].backgroundUrl
+  );
   const click = (answer) => {
     setAnswers([...answers, answer]);
+    setbackgroundUrl(question.backgroundUrl);
+
+    // Our click function takes in states as inputs
+    // registers the answers to the console
     // If statement adds a pause to our quiz when it reaches the end
     if (currentIndex >= question.length) {
       return;
@@ -127,30 +139,17 @@ const Quiz = ({ history }) => {
 
   if (currentIndex === 6 && paintings > 1) {
     history.push('/Paintings');
-    alert('You got Paintings!')
-  }
-  else if (currentIndex === 6 && sculpture > 1) {
+    alert('You got Paintings!');
+  } else if (currentIndex === 6 && sculpture > 1) {
     history.push('/Sculpture');
-    alert('You got Sculpture!')
-  }
-  else if (currentIndex === 6 && weapons > 1) {
+    alert('You got Sculpture!');
+  } else if (currentIndex === 6 && weapons > 1) {
     history.push('/Weapons');
-    alert('You got Weapons!')
-  }
-  else if (currentIndex === 6 && photography > 1) {
+    alert('You got Weapons!');
+  } else if (currentIndex === 6 && photography > 1) {
     history.push('/Photography');
-    alert('You got Photography!')
+    alert('You got Photography!');
   }
-  // Here we return the questions and answers.
-
-  // We use the ? to validate if our questions and answers are truthy
-  //before accessing it's attribute
-
-  //? is used as per new version node 14,
-  //if using node 12 we would had used answer && answer.one instead.
-
-  //We return answer choices using the .map() method
-
   // Here we return the questions and answers.
 
   // We use the ? to validate if our questions and answers are truthy
@@ -163,15 +162,31 @@ const Quiz = ({ history }) => {
 
   return (
     <div className="questionnaire">
-      <div id="question">{question?.q}</div>
-      {question?.a.map((answer, i) => {
-        return (
-          <div key={i}>
-            <button onClick={() => click(answer?.one)}>{answer.one}</button>
-            <button onClick={() => click(answer?.two)}>{answer.two}</button>
-          </div>
-        );
-      })}
+      <div id="question" style={{ backgroundImage: `url(${backgroundUrl})` }}>
+        <h1 style={{ color: '#33cc99' }}>{question?.q}</h1>
+        {question?.a.map((answer, i) => {
+          return (
+            <div key={i}>
+              <button
+                className="gButton"
+                style={{ color: 'salmon' }}
+                onClick={() => click(answer?.one)}
+              >
+                {answer.one}
+              </button>
+              <span className="spaceButton">
+                <button
+                  className="gButton"
+                  style={{ color: 'salmon' }}
+                  onClick={() => click(answer?.two)}
+                >
+                  {answer.two}
+                </button>
+              </span>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
