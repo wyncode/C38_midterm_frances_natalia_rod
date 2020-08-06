@@ -5,7 +5,6 @@ import axios from 'axios';
 //need 'import 'bootstrap/dist/css/bootstrap.min.css' installed in index.jsx in order to use bootstrap
 
 function Paintings() {
-
   //setting up a state for apiData to pull from the API, index to utilize the carousel, and pageNum to be able to navigate through the API's pages
 
   const [apiData, setApiData] = useState([]);
@@ -50,7 +49,6 @@ function Paintings() {
     <div className="carousel">
       <div className="img">
         <Carousel activeIndex={index} onSelect={handleSelectC}>
-
           {/* apiData will only map objects in the JSON that have images, through the use of the && statement*/}
 
           {apiData.map(
@@ -60,8 +58,8 @@ function Paintings() {
                   <a href={works.url}>
                     <img
                       src={works.primaryimageurl}
-                      alt={works.title}                         //alt tag is the works title for accessibility
-                      width="600px"
+                      alt={works.title} //alt tag is the works title for accessibility
+                      height="400px"
                     />
                   </a>
                   <Carousel.Caption>
@@ -74,12 +72,44 @@ function Paintings() {
 
         {/* buttons only render if their intended use is applicable, through the use of the && statement */}
 
-        <div className="button">
-          {pageNum >= 6 && <button onClick={pageDown5}>-5 Pages</button>}
-          {pageNum >= 2 && <button onClick={pageDown}>Previous Page</button>}
-          <h1>{pageNum}</h1>
-          {pageNum <= 206 && <button onClick={pageUp}>Next Page</button>}
-          {pageNum <= 201 && <button onClick={pageUp5}>+5 Pages</button>}
+        <div className="Button">
+          {pageNum >= 6 && (
+            <button
+              className="gButton"
+              style={{ color: 'salmon' }}
+              onClick={pageDown5}
+            >
+              -5
+            </button>
+          )}
+          {pageNum >= 2 && (
+            <button
+              className="gButton"
+              style={{ color: 'salmon' }}
+              onClick={pageDown}
+            >
+              ←
+            </button>
+          )}
+
+          {pageNum <= 206 && (
+            <button
+              className="gButton"
+              style={{ color: 'salmon' }}
+              onClick={pageUp}
+            >
+              →
+            </button>
+          )}
+          {pageNum <= 201 && (
+            <button
+              className="gButton"
+              style={{ color: 'salmon' }}
+              onClick={pageUp5}
+            >
+              +5
+            </button>
+          )}
         </div>
       </div>
     </div>
