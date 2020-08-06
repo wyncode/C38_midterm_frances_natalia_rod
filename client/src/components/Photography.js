@@ -60,7 +60,11 @@ function Photography() {
           )}
         </Carousel>
         <div className="button">
-          {pageNum >= 6 && <button onClick={pageDown5}>-5 Pages</button>}
+          {pageNum >= 6 && (
+            <button className="gB" onClick={pageDown5}>
+              -5 Pages
+            </button>
+          )}
           {pageNum >= 2 && <button onClick={pageDown}>Previous Page</button>}
           <h1>{pageNum}</h1>
           {pageNum <= 36 && <button onClick={pageUp}>Next Page</button>}
