@@ -8,7 +8,7 @@ import Photography from './components/Photography';
 import Quiz from './components/Quiz';
 
 import Nav from './components/Nav';
-import Button from './buttons/Button.svg';
+
 
 const ArtRoulette = () => {
   return (

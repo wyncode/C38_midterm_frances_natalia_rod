@@ -150,6 +150,7 @@ const Quiz = ({ history }) => {
     history.push('/Photography');
     alert('You got Photography!');
   }
+
   // Here we return the questions and answers.
 
   // We use the ? to validate if our questions and answers are truthy
