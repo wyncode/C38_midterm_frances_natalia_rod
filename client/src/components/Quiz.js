@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
-// quesitons will change according to the API theme
+
+// Quiz Function for our Art Roulette questionnaire
+// takes history as prop, which will redirect the user to a gallery
+// depending on the user's choices.
+
 const Quiz = ({ history }) => {
+  // "questions", is an array of 5 objects that each contains a question
+  // and 2 answer choices
   const questions = [
     {
       id: 1,
@@ -54,6 +60,9 @@ const Quiz = ({ history }) => {
       ]
     }
   ];
+  //we used hook useState to keep track and update the questions,
+  //indexes, answers and categories
+
   const [question, setQuestion] = useState(questions[0]);
   const [currentIndex, setCurrentIndex] = useState(1);
   const [answers, setAnswers] = useState([]);
@@ -62,17 +71,22 @@ const Quiz = ({ history }) => {
   const [sculpture, setSculpture] = useState(0);
   const [weapons, setWeapons] = useState(0);
 
+  // Our click function takes in states as inputs
+  // registers the answers to the console
   const click = (answer) => {
     setAnswers([...answers, answer]);
-
+    // If statement adds a pause to our quiz when it reaches the end
     if (currentIndex >= question.length) {
       return;
     }
-
+    //SetCurrentIndex updates the index of the questions,
+    //so it switches to the next question after you click
     setCurrentIndex(currentIndex + 1);
     setQuestion(questions[currentIndex]);
-    // console.log(answer);
-    // console.log(currentIndex);
+
+    // this control flow uses an if condition,
+    // everytime the condition is satisfied it increments
+    //a category by one, depending on the user's choice
 
     if (answer === 'Paris') {
       setPaintings(paintings + 1);
@@ -105,8 +119,12 @@ const Quiz = ({ history }) => {
       setPhotography(photography + 1);
     }
   };
-  console.log(answers);
-  //instead of console.log {histoty.push(path to gallery)}
+
+  // This control flow filters through the user's choices
+  // once the index reaches the final question
+  // and a category is triggered more than once,
+  // it redirects the user to an art gallery by using the history.push method
+
   if (currentIndex === 6 && paintings > 1) {
     history.push('/Paintings');
   }
@@ -119,6 +137,15 @@ const Quiz = ({ history }) => {
   if (currentIndex === 6 && photography > 1) {
     history.push('/Photography');
   }
+  // Here we return the questions and answers.
+
+  // We use the ? to validate if our questions and answers are truthy
+  //before accessing it's attribute
+
+  //? is used as per new version node 14,
+  //if using node 12 we would had used answer && answer.one instead.
+
+  //We return answer choices using the .map() method
 
   return (
     <div className="questionnaire">
