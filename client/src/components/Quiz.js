@@ -127,16 +127,30 @@ const Quiz = ({ history }) => {
 
   if (currentIndex === 6 && paintings > 1) {
     history.push('/Paintings');
+    alert('You got Paintings!')
   }
-  if (currentIndex === 6 && sculpture > 1) {
+  else if (currentIndex === 6 && sculpture > 1) {
     history.push('/Sculpture');
+    alert('You got Sculpture!')
   }
-  if (currentIndex === 6 && weapons > 1) {
+  else if (currentIndex === 6 && weapons > 1) {
     history.push('/Weapons');
+    alert('You got Weapons!')
   }
-  if (currentIndex === 6 && photography > 1) {
+  else if (currentIndex === 6 && photography > 1) {
     history.push('/Photography');
+    alert('You got Photography!')
   }
+  // Here we return the questions and answers.
+
+  // We use the ? to validate if our questions and answers are truthy
+  //before accessing it's attribute
+
+  //? is used as per new version node 14,
+  //if using node 12 we would had used answer && answer.one instead.
+
+  //We return answer choices using the .map() method
+
   // Here we return the questions and answers.
 
   // We use the ? to validate if our questions and answers are truthy
