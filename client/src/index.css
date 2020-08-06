@@ -1,6 +1,3 @@
-/* * {
-  outline: 1px dotted black;
-} */
 body {
   margin: 0;
   background-color: rgb(255, 255, 255);
@@ -23,22 +20,6 @@ body {
   align-items: center;
 }
 
-#question {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  text-shadow: 2px 2px #272727;
-  min-height: 100vh;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
 nav > * {
   margin: 20px;
 }
@@ -51,6 +32,7 @@ nav > * {
 
 #dropdownItemButton {
   background-color: grey;
+  outline: 1px solid #272727;
 }
 .ARLOGO {
   height: 86px;
@@ -69,6 +51,7 @@ nav > * {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  outline: 3px solid #272727;
 
   position: relative;
 }
@@ -87,6 +70,22 @@ nav > * {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+#question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  text-shadow: 2px 2px #272727;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  outline: 3px solid #272727;
 }
 
 .gallery {
@@ -144,11 +143,9 @@ nav > * {
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  text-shadow: 2px 2px #272727;
-  min-height: 100vh;
+  min-height: 100vh - 400px;
   justify-content: center;
 }
 
@@ -166,6 +163,7 @@ nav > * {
   font-size: 80px;
   color: #272727;
 }
+/* Homepage description */
 .description {
   position: absolute;
   bottom: 260px;
@@ -175,6 +173,7 @@ nav > * {
   color: #383838;
   width: 798px;
 }
+/* SVG file Home Button for Roulette */
 .theButton {
   position: absolute;
   bottom: 120px;
@@ -187,11 +186,16 @@ nav > * {
   outline-width: 0px;
   outline-color: transparent;
 }
-
-.img {
-  border: 1px solid salmon;
+/* Gallery Button */
+.gButton {
+  border: 1px solid white;
+  border-radius: 7.5px;
+  -moz-border-radius: 7.5px;
+  -webkit-border-radius: 7.5px;
+  height: 35px;
+  color: #5f6368;
 }
-
-.classification {
-  color: lightgray;
+/* space between buttons in the quiz */
+.spaceButton {
+  padding-left: 6px;
 }

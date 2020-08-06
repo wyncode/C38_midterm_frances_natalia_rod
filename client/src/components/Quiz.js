@@ -2,7 +2,14 @@ import React, { useState } from 'react';
 import '../index.css';
 
 // quesitons will change according to the API theme
+
+// Quiz Function for our Art Roulette questionnaire
+// takes history as prop, which will redirect the user to a gallery
+// depending on the user's choices.
+
 const Quiz = ({ history }) => {
+  // "questions", is an array of 5 objects that each contains a question
+  // and 2 answer choices
   const questions = [
     {
       id: 1,
@@ -13,7 +20,7 @@ const Quiz = ({ history }) => {
           two: 'Paris'
         }
       ],
-      backgroundUrl: '/images/Harvard_Art_18788721copy.jpeg'
+      backgroundUrl: '/images/Harvard_Art_18783392.jpeg'
     },
     {
       id: 2,
@@ -46,7 +53,7 @@ const Quiz = ({ history }) => {
           two: 'Unrequited Love'
         }
       ],
-      backgroundUrl: '/images/Harvard_Art_18783392.jpeg'
+      backgroundUrl: '/images/Harvard_Art_18788721copy.jpeg'
     },
 
     {
@@ -58,9 +65,12 @@ const Quiz = ({ history }) => {
           two: 'Nature'
         }
       ],
-      backgroundUrl: '/images/Harvard_Art_18723252.jpeg'
+      backgroundUrl: '/images/Harvard-Art-477339539.jpeg'
     }
   ];
+  //we used hook useState to keep track and update the questions,
+  //indexes, answers and categories
+
   const [question, setQuestion] = useState(questions[0]);
   const [currentIndex, setCurrentIndex] = useState(1);
   const [answers, setAnswers] = useState([]);
@@ -69,19 +79,26 @@ const Quiz = ({ history }) => {
   const [sculpture, setSculpture] = useState(0);
   const [weapons, setWeapons] = useState(0);
   const [backgroundUrl, setbackgroundUrl] = useState(
-    questions[1].backgroundUrl
+    questions[4].backgroundUrl
   );
   const click = (answer) => {
     setAnswers([...answers, answer]);
     setbackgroundUrl(question.backgroundUrl);
+
+    // Our click function takes in states as inputs
+    // registers the answers to the console
+    // If statement adds a pause to our quiz when it reaches the end
     if (currentIndex >= question.length) {
       return;
     }
-
+    //SetCurrentIndex updates the index of the questions,
+    //so it switches to the next question after you click
     setCurrentIndex(currentIndex + 1);
     setQuestion(questions[currentIndex]);
-    // console.log(answer);
-    // console.log(currentIndex);
+
+    // this control flow uses an if condition,
+    // everytime the condition is satisfied it increments
+    //a category by one, depending on the user's choice
 
     if (answer === 'Paris') {
       setPaintings(paintings + 1);
@@ -114,30 +131,58 @@ const Quiz = ({ history }) => {
       setPhotography(photography + 1);
     }
   };
-  console.log(answers);
-  //instead of console.log {histoty.push(path to gallery)}
+
+  // This control flow filters through the user's choices
+  // once the index reaches the final question
+  // and a category is triggered more than once,
+  // it redirects the user to an art gallery by using the history.push method
+
   if (currentIndex === 6 && paintings > 1) {
     history.push('/Paintings');
-  }
-  if (currentIndex === 6 && sculpture > 1) {
+    alert('You got Paintings!');
+  } else if (currentIndex === 6 && sculpture > 1) {
     history.push('/Sculpture');
-  }
-  if (currentIndex === 6 && weapons > 1) {
+    alert('You got Sculpture!');
+  } else if (currentIndex === 6 && weapons > 1) {
     history.push('/Weapons');
-  }
-  if (currentIndex === 6 && photography > 1) {
+    alert('You got Weapons!');
+  } else if (currentIndex === 6 && photography > 1) {
     history.push('/Photography');
+    alert('You got Photography!');
   }
+  // Here we return the questions and answers.
+
+  // We use the ? to validate if our questions and answers are truthy
+  //before accessing it's attribute
+
+  //? is used as per new version node 14,
+  //if using node 12 we would had used answer && answer.one instead.
+
+  //We return answer choices using the .map() method
 
   return (
     <div className="questionnaire">
       <div id="question" style={{ backgroundImage: `url(${backgroundUrl})` }}>
-        <h2 style={{ color: 'white' }}>{question?.q}</h2>
+        <h1 style={{ color: '#33cc99' }}>{question?.q}</h1>
         {question?.a.map((answer, i) => {
           return (
             <div key={i}>
-              <button onClick={() => click(answer?.one)}>{answer.one}</button>
-              <button onClick={() => click(answer?.two)}>{answer.two}</button>
+              <button
+                className="gButton"
+                style={{ color: 'salmon' }}
+                onClick={() => click(answer?.one)}
+              >
+                {answer.one}
+              </button>
+              <span className="spaceButton">
+                <button
+                  className="gButton"
+                  style={{ color: 'salmon' }}
+                  onClick={() => click(answer?.two)}
+                >
+                  {answer.two}
+                </button>
+              </span>
             </div>
           );
         })}

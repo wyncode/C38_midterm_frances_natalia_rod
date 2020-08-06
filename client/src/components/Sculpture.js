@@ -5,9 +5,13 @@ import axios from 'axios';
 //need 'import 'bootstrap/dist/css/bootstrap.min.css' installed in index.jsx!!!!
 
 function Sculpture() {
+  //setting up a state for apiData to pull from the API, index to utilize the carousel, and pageNum to be able to navigate through the API's pages
+
   const [apiData, setApiData] = useState([]);
   const [index, setIndex] = useState(0);
   const [pageNum, setPageNum] = useState(1);
+
+  //following functions are for navigation of the API's pages, in intervals of 1 and 5. Activated by buttons below
 
   const pageUp = () => {
     setPageNum(pageNum + 1);
@@ -25,6 +29,8 @@ function Sculpture() {
     setPageNum(pageNum - 5);
   };
 
+  // useEffect used to pull from the API request set up in server.js. the query request for the page, or '?page=${pageNum}', lets us change the api endpoint from the front end.
+
   useEffect(() => {
     const getData = async () => {
       const result = await axios.get(`/api/sculpture?page=${pageNum}`);
@@ -32,6 +38,8 @@ function Sculpture() {
     };
     getData();
   }, [pageNum]);
+
+  // handleSelectC function allows us to navigate through the carousel
 
   const handleSelectC = (selectedIndex, e) => {
     setIndex(selectedIndex);
@@ -41,6 +49,8 @@ function Sculpture() {
     <div className="carousel">
       <div className="img">
         <Carousel activeIndex={index} onSelect={handleSelectC}>
+          {/* apiData will only map objects in the JSON that have images, through the use of the && statement*/}
+
           {apiData.map(
             (works) =>
               works.primaryimageurl && (
@@ -48,8 +58,8 @@ function Sculpture() {
                   <a href={works.url}>
                     <img
                       src={works.primaryimageurl}
-                      alt={works.title}
-                      width="500px"
+                      alt={works.title} //alt tag is the works title for accessibility
+                      width="600px"
                     />
                   </a>
                   <Carousel.Caption>
@@ -59,12 +69,47 @@ function Sculpture() {
               )
           )}
         </Carousel>
+
+        {/* buttons only render if their intended use is applicable, through the use of the && statement */}
+
         <div className="button">
-          {pageNum >= 6 && <button onClick={pageDown5}>-5 Pages</button>}
-          {pageNum >= 2 && <button onClick={pageDown}>Previous Page</button>}
-          <h1>{pageNum}</h1>
-          {pageNum <= 103 && <button onClick={pageUp}>Next Page</button>}
-          {pageNum <= 98 && <button onClick={pageUp5}>+5 Pages</button>}
+          {pageNum >= 6 && (
+            <button
+              className="gButton"
+              style={{ color: 'salmon' }}
+              onClick={pageDown5}
+            >
+              -5
+            </button>
+          )}
+          {pageNum >= 2 && (
+            <button
+              className="gButton"
+              style={{ color: 'salmon' }}
+              onClick={pageDown}
+            >
+              ←
+            </button>
+          )}
+
+          {pageNum <= 103 && (
+            <button
+              className="gButton"
+              style={{ color: 'salmon' }}
+              onClick={pageUp}
+            >
+              →
+            </button>
+          )}
+          {pageNum <= 98 && (
+            <button
+              className="gButton"
+              style={{ color: 'salmon' }}
+              onClick={pageUp5}
+            >
+              +5
+            </button>
+          )}
         </div>
       </div>
     </div>
