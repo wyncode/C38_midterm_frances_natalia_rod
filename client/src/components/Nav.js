@@ -1,26 +1,11 @@
-import React, { useState, useContext } from 'react';
+import React from 'react';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 function Nav() {
   // The folliwng functions, using the history prop, route you to the respective galleries upon clicking their respective buttons in the dropdown menu
-
   let history = useHistory();
-
-  const handleClickPaintings = () => {
-    history.push('/Paintings');
-  };
-  const handleClickSculpt = () => {
-    history.push('/Sculpture');
-  };
-  const handleClickWeapons = () => {
-    history.push('/Weapons');
-  };
-  const handleClickPhoto = () => {
-    history.push('/Photography');
-  };
-
   return (
     <nav className="arNav">
       {/* link element is an easy way to route back to the home page */}
@@ -35,12 +20,18 @@ function Nav() {
         variant="secondary"
         title="Galleries"
       >
-        <Dropdown.Item onClick={handleClickPaintings}>Paintings</Dropdown.Item>
-        <Dropdown.Item onClick={handleClickSculpt}>Sculpture</Dropdown.Item>
-        <Dropdown.Item onClick={handleClickWeapons}>
+        <Dropdown.Item onClick={() => history.push('/Paintings')}>
+          Paintings
+        </Dropdown.Item>
+        <Dropdown.Item onClick={() => history.push('/Sculpture')}>
+          Sculpture
+        </Dropdown.Item>
+        <Dropdown.Item onClick={() => history.push('/Weapons')}>
           Weapons and Ammunition
         </Dropdown.Item>
-        <Dropdown.Item onClick={handleClickPhoto}>Photographs</Dropdown.Item>
+        <Dropdown.Item onClick={() => history.push('/Photography')}>
+          Photographs
+        </Dropdown.Item>
       </DropdownButton>
     </nav>
   );

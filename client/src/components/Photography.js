@@ -11,24 +11,6 @@ function Photography() {
   const [index, setIndex] = useState(0);
   const [pageNum, setPageNum] = useState(1);
 
-  //following functions are for navigation of the API's pages, in intervals of 1 and 5. Activated by buttons below
-
-  const pageUp = () => {
-    setPageNum(pageNum + 1);
-  };
-
-  const pageDown = () => {
-    setPageNum(pageNum - 1);
-  };
-
-  const pageUp5 = () => {
-    setPageNum(pageNum + 5);
-  };
-
-  const pageDown5 = () => {
-    setPageNum(pageNum - 5);
-  };
-
   // useEffect used to pull from the API request set up in server.js. the query request for the page, or '?page=${pageNum}', lets us change the api endpoint from the front end.
 
   useEffect(() => {
@@ -77,7 +59,7 @@ function Photography() {
             <button
               className="gButton"
               style={{ color: 'salmon' }}
-              onClick={pageDown5}
+              onClick={() => setPageNum(pageNum - 5)}
             >
               -5
             </button>
@@ -86,7 +68,7 @@ function Photography() {
             <button
               className="gButton"
               style={{ color: 'salmon' }}
-              onClick={pageDown}
+              onClick={() => setPageNum(pageNum - 1)}
             >
               ←
             </button>
@@ -96,7 +78,7 @@ function Photography() {
             <button
               className="gButton"
               style={{ color: 'salmon' }}
-              onClick={pageUp}
+              onClick={() => setPageNum(pageNum + 1)}
             >
               →
             </button>
@@ -105,7 +87,7 @@ function Photography() {
             <button
               className="gButton"
               style={{ color: 'salmon' }}
-              onClick={pageUp5}
+              onClick={() => setPageNum(pageNum + 5)}
             >
               +5
             </button>
